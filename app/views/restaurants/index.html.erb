@@ -1,0 +1,77 @@
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a href="/" class="brand">Menu Request</a>
+            <ul class="nav">
+                <li><%= link_to 'Suggest a Restaurant', new_restaurant_path %></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+<div class="row">
+    <div class="span12-header">
+
+    </div>
+
+    <div class="row">
+        <div class="span2">
+            Custom Filters
+        </div>
+        <div class="cust-span6-main-listing">
+            <div class="listing-search">
+            <%= form_tag restaurants_path, :method => :get, :class => "listing-search-form" do %>
+            <%= text_field_tag :search, params[:search] %>
+            <%= submit_tag "Search", :name => nil %>
+            <% end %>
+            </div>
+
+            <% @restaurants.each do |restaurant| %>
+                <div class="row">
+                    <div class="span6">
+                        <div class="row">
+                            <div class="span5">
+                                <div class="restaurant-name">
+                                    <%= link_to restaurant.name, restaurant %>
+                                </div>
+                            </div>
+                            <div class="listing-image-info-box">
+                            <div class="span2">
+                                <div class="listing-image">
+                                    PIC
+                                </div>
+                            </div>
+                            <div class="span3">
+                                <%= restaurant.category %><br>
+                                <%= restaurant.address %><br>
+                                <%= restaurant.city %>, <%= restaurant.state %> <%= restaurant.zipcode %><br>
+                                <%= restaurant.phone %><br>
+                            </div>
+                            </div>
+                            <div class="span6">
+                                <p class="listing-description">
+                                <%= restaurant.description %>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+
+
+            <br />
+
+            Page 1.. 2... 3...
+        </div>
+    
+        <div class="span4">
+            Ads...
+        </div>
+    </div>
+</div>
+</div>
+</body>

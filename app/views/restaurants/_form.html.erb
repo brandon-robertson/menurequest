@@ -1,0 +1,64 @@
+<%= simple_form_for(@restaurant, :html => { :class => 'form-horizontal'}) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :state %>
+    <%= f.input :city %>
+    <%= f.input :zipcode %>
+    <%= f.input :phone %>
+    <%= f.input :description %>
+    <%= f.input :website %>
+    <%= f.input :latitude %>
+    <%= f.input :longitude %>
+    <%= f.input :category, :collection => content_categories %>
+    Monday 
+    <%= f.input_field :hours_monday_open, :collection => hours_of_operation, :class => 'span2' %>
+    to 
+    <%= f.input_field :hours_monday_close, :collection => hours_of_operation, :class => 'span2' %>
+    <p></p>
+    Tuesday 
+    <%= f.input_field :hours_tuesday_open, :collection => hours_of_operation, :class => 'span2' %>
+    to 
+    <%= f.input_field :hours_tuesday_close, :collection => hours_of_operation, :class => 'span2' %>
+    <p></p>
+    Wednesday 
+    <%= f.input_field :hours_wednesday_open, :collection => hours_of_operation, :class => 'span2' %>
+    to 
+    <%= f.input_field :hours_wednesday_close, :collection => hours_of_operation, :class => 'span2' %>
+    <p></p>
+    Thursday 
+    <%= f.input_field :hours_thursday_open, :collection => hours_of_operation, :class => 'span2' %>
+    to 
+    <%= f.input_field :hours_thursday_close, :collection => hours_of_operation, :class => 'span2' %>
+    <p></p>
+    Friday 
+    <%= f.input_field :hours_friday_open, :collection => hours_of_operation, :class => 'span2' %>
+    to 
+    <%= f.input_field :hours_friday_close, :collection => hours_of_operation, :class => 'span2' %>
+    <p></p>
+    Saturday 
+    <%= f.input_field :hours_saturday_open, :collection => hours_of_operation, :class => 'span2' %>
+    to 
+    <%= f.input_field :hours_saturday_close, :collection => hours_of_operation, :class => 'span2' %>
+    <p></p>
+    Sunday 
+    <%= f.input_field :hours_sunday_open, :collection => hours_of_operation, :class => 'span2' %>
+    to 
+    <%= f.input_field :hours_sunday_close, :collection => hours_of_operation, :class => 'span2' %>
+    <p></p>
+    <%= f.input :accepts_cc, :as => :boolean %>
+    <%= f.input :takes_reservations, :as => :boolean %>
+    <%= f.input :delivery, :as => :boolean %>
+    <%= f.input :take_out, :as => :boolean %>
+    <%= f.input :waiter_service, :as => :boolean %>
+    <%= f.input :outdoor_seating, :as => :boolean %>
+    <%= f.input :wifi, :as => :boolean %>
+    <%= f.input :alcohol, :as => :boolean %>
+    <%= f.input :parking, :collection => parking_categories %>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

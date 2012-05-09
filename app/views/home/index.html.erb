@@ -1,0 +1,39 @@
+<div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a href="/" class="brand">Menu Request</a>
+                    <ul class="nav">
+                        <li><%= link_to 'Suggest a Restaurant', new_restaurant_path %></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+<div class="container">
+
+<div class="row-fluid">
+<div class="span12-header">
+
+</div>
+
+<div class="span12-logo">
+<h1><Center>
+Menu Request
+</Center></h1>
+</div>
+<div class="span12">
+	<%= form_tag restaurants_path, :method => :get do %>
+    <p>
+    <center>
+     <%= text_field_tag :search, params[:search], :class => "span6", :placeholder => "City, State or ZipCode" %>
+     <%= submit_tag "Search", :name => nil %>
+    </p>
+    </center>
+<% end %>
+</div>
+
+
+</div>
+
+</div>

@@ -1,0 +1,83 @@
+<div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a href="/" class="brand">Menu Request</a>
+                    <ul class="nav">
+                        <li><%= link_to 'Suggest a Restaurant', new_restaurant_path %></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+<div class="container">
+
+<div class="row-fluid">
+<div class="span12-header">
+
+</div>
+
+<div class="row">
+<div class="span8">
+<p id="notice"><%= notice %></p>
+
+
+  <h3><b><%= @restaurant.name %></b></h3>
+<p></p>
+
+  Catergory: <%= @restaurant.category %>
+<p></p>
+<p>
+  <%= @restaurant.address %><br>
+  <%= @restaurant.city %>, <%= @restaurant.state %> <%= @restaurant.zipcode %>
+</p>
+
+<p>
+  <%= @restaurant.phone %><br>
+  <%= link_to @restaurant.website, @restaurant.website %>
+</p>
+
+<p>
+<div class="row">
+  <div class="span3">
+  <b>Hours:</b><br>
+  Monday: <%= @restaurant.hours_monday_open %> - <%= @restaurant.hours_monday_close %><br>
+  Tuesday: <%= @restaurant.hours_tuesday_open %> - <%= @restaurant.hours_tuesday_close %><br>
+  Wednesday: <%= @restaurant.hours_wednesday_open %> - <%= @restaurant.hours_wednesday_close %><br>
+  Thursday: <%= @restaurant.hours_thursday_open %> - <%= @restaurant.hours_thursday_close %><br>
+  Friday: <%= @restaurant.hours_friday_open %> - <%= @restaurant.hours_friday_close %><br>
+  Saturday: <%= @restaurant.hours_saturday_open %> - <%= @restaurant.hours_saturday_close %><br>
+  Sunday: <%= @restaurant.hours_sunday_open %> - <%= @restaurant.hours_sunday_close %><br>
+  </div>
+  <div class="span3">
+  <b>Parking: </b><%= @restaurant.parking %><br>
+  <b>Accepts Credit Cards: </b><%= @restaurant.accepts_cc? ? 'Yes' : 'No' %><br>
+  <b>Takes Reservations: </b><%= @restaurant.takes_reservations? ? 'Yes' : 'No' %><br>
+  <b>Delivery: </b><%= @restaurant.delivery? ? 'Yes' : 'No' %><br>
+  <b>Take Out: </b><%= @restaurant.take_out? ? 'Yes' : 'No' %><br>
+  <b>Waiter Service: </b><%= @restaurant.waiter_service? ? 'Yes' : 'No' %><br>
+  </div>
+  <div class="span2">
+  <b>Outdoor Seating: </b><%= @restaurant.outdoor_seating? ? 'Yes' : 'No' %><br>
+  <b>Wifi: </b><%= @restaurant.wifi? ? 'Yes' : 'No' %><br>
+  <b>Alcohol: </b><%= @restaurant.alcohol? ? 'Yes' : 'No' %><br>
+  </div>
+</div>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @restaurant.description %>
+</p>
+
+<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
+<%= link_to 'Back', restaurants_path %>
+</div>
+
+<div class="span4">
+<h3><b>Map & Directions</b></h3>
+<p></p>
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@restaurant.latitude}%2C#{@restaurant.longitude}" %>
+</div>
+</div>
+</div>
+</div>

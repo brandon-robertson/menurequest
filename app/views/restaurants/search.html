@@ -1,0 +1,44 @@
+<h1>Listing restaurants</h1>
+
+<%= form_tag restaurants_path, :method => :get do %>
+    <p>
+     <%= text_field_tag "search/", params[:search] %>
+     <%= submit_tag "Search Near", :name => nil %>
+    </p>
+<% end %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>State</th>
+    <th>City</th>
+    <th>Zipcode</th>
+    <th>Phone</th>
+    <th>Description</th>
+    <th>Website</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @restaurants.each do |restaurant| %>
+  <tr>
+    <td><%= restaurant.name %></td>
+    <td><%= restaurant.address %></td>
+    <td><%= restaurant.state %></td>
+    <td><%= restaurant.city %></td>
+    <td><%= restaurant.zipcode %></td>
+    <td><%= restaurant.phone %></td>
+    <td><%= restaurant.description %></td>
+    <td><%= restaurant.website %></td>
+    <td><%= link_to 'Show', restaurant %></td>
+    <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
+    <td><%= link_to 'Destroy', restaurant, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Restaurant', new_restaurant_path %>
